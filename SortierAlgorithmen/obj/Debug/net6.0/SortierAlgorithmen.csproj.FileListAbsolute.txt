@@ -1,0 +1,15 @@
+C:\Users\mjabs\Documents\a_GitHub\SortierAlgorithmen\SortierAlgorithmen\bin\Debug\net6.0\SortierAlgorithmen.exe
+C:\Users\mjabs\Documents\a_GitHub\SortierAlgorithmen\SortierAlgorithmen\bin\Debug\net6.0\SortierAlgorithmen.deps.json
+C:\Users\mjabs\Documents\a_GitHub\SortierAlgorithmen\SortierAlgorithmen\bin\Debug\net6.0\SortierAlgorithmen.runtimeconfig.json
+C:\Users\mjabs\Documents\a_GitHub\SortierAlgorithmen\SortierAlgorithmen\bin\Debug\net6.0\SortierAlgorithmen.dll
+C:\Users\mjabs\Documents\a_GitHub\SortierAlgorithmen\SortierAlgorithmen\bin\Debug\net6.0\SortierAlgorithmen.pdb
+C:\Users\mjabs\Documents\a_GitHub\SortierAlgorithmen\SortierAlgorithmen\obj\Debug\net6.0\SortierAlgorithmen.csproj.AssemblyReference.cache
+C:\Users\mjabs\Documents\a_GitHub\SortierAlgorithmen\SortierAlgorithmen\obj\Debug\net6.0\SortierAlgorithmen.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mjabs\Documents\a_GitHub\SortierAlgorithmen\SortierAlgorithmen\obj\Debug\net6.0\SortierAlgorithmen.AssemblyInfoInputs.cache
+C:\Users\mjabs\Documents\a_GitHub\SortierAlgorithmen\SortierAlgorithmen\obj\Debug\net6.0\SortierAlgorithmen.AssemblyInfo.cs
+C:\Users\mjabs\Documents\a_GitHub\SortierAlgorithmen\SortierAlgorithmen\obj\Debug\net6.0\SortierAlgorithmen.csproj.CoreCompileInputs.cache
+C:\Users\mjabs\Documents\a_GitHub\SortierAlgorithmen\SortierAlgorithmen\obj\Debug\net6.0\SortierAlgorithmen.dll
+C:\Users\mjabs\Documents\a_GitHub\SortierAlgorithmen\SortierAlgorithmen\obj\Debug\net6.0\refint\SortierAlgorithmen.dll
+C:\Users\mjabs\Documents\a_GitHub\SortierAlgorithmen\SortierAlgorithmen\obj\Debug\net6.0\SortierAlgorithmen.pdb
+C:\Users\mjabs\Documents\a_GitHub\SortierAlgorithmen\SortierAlgorithmen\obj\Debug\net6.0\SortierAlgorithmen.genruntimeconfig.cache
+C:\Users\mjabs\Documents\a_GitHub\SortierAlgorithmen\SortierAlgorithmen\obj\Debug\net6.0\ref\SortierAlgorithmen.dll

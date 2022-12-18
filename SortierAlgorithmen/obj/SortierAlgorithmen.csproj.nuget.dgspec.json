@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Programming\\SortierAlgorithmen\\SortierAlgorithmen\\SortierAlgorithmen.csproj": {}
+    "C:\\Users\\mjabs\\Documents\\a_GitHub\\SortierAlgorithmen\\SortierAlgorithmen\\SortierAlgorithmen.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Programming\\SortierAlgorithmen\\SortierAlgorithmen\\SortierAlgorithmen.csproj": {
+    "C:\\Users\\mjabs\\Documents\\a_GitHub\\SortierAlgorithmen\\SortierAlgorithmen\\SortierAlgorithmen.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Programming\\SortierAlgorithmen\\SortierAlgorithmen\\SortierAlgorithmen.csproj",
+        "projectUniqueName": "C:\\Users\\mjabs\\Documents\\a_GitHub\\SortierAlgorithmen\\SortierAlgorithmen\\SortierAlgorithmen.csproj",
         "projectName": "SortierAlgorithmen",
-        "projectPath": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Programming\\SortierAlgorithmen\\SortierAlgorithmen\\SortierAlgorithmen.csproj",
+        "projectPath": "C:\\Users\\mjabs\\Documents\\a_GitHub\\SortierAlgorithmen\\SortierAlgorithmen\\SortierAlgorithmen.csproj",
         "packagesPath": "C:\\Users\\mjabs\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Programming\\SortierAlgorithmen\\SortierAlgorithmen\\obj\\",
+        "outputPath": "C:\\Users\\mjabs\\Documents\\a_GitHub\\SortierAlgorithmen\\SortierAlgorithmen\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mjabs\\AppData\\Roaming\\NuGet\\NuGet.Config",
