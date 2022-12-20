@@ -104,30 +104,61 @@ namespace SortierAlgorithmen
 
         private List<int> RandomizeList()
         {
+            Random random = new Random();
             List<int> numbers = new List<int>();
-            int min = 5;
-            int max = 20;
+            int minList, maxList, minNumber, maxNumber, amount;
 
-            Console.Write("Create a random list with an amount of numbers between ");
-            WriteColor(false, ConsoleColor.Blue, "_");
-            Console.Write(" and _");
-            min = randomNumberInput(0);
+            (minList, maxList) = randomListConsole("Create a random list with an amount of numbers between ");
+            amount = random.Next(minList, maxList + 1);     // how many Numbers should be randomized (min-max)
+            (minNumber, maxNumber) = randomListConsole("Randomize Numbers between ");
 
-            Console.Write("Create a random list with an amount of numbers between ");
-            WriteColor(false, ConsoleColor.Blue, $"{min}");
-            Console.Write(" and ");
-            WriteColor(false, ConsoleColor.Blue, "_");
+            Console.WriteLine($"List length between {minList} and {maxList}\n" +
+                              $"Numbers between {minNumber} and {maxNumber}\n");
 
-            Console.Write("Create a random list with an amount of numbers between ");
-            WriteColor(false, ConsoleColor.Blue, $"{min}");
-            Console.Write(" and ");
-            WriteColor(false, ConsoleColor.Blue, $"{max}");
+            WriteColor(false, ConsoleColor.DarkGreen, $"List: ");
 
-            Console.ReadLine();
+            for (int i = 0; i <= amount; i++)
+            {
+                int number = random.Next(minNumber, maxNumber);
+                numbers.Add(number);
+                WriteColor(false, ConsoleColor.DarkGreen, $"{number} ");
+            }
 
-
+            WriteColor(true, ConsoleColor.DarkGray, "\nPress any key to sort the list");
+            Console.ReadKey(true);
+            Console.Clear();
 
             return numbers;
+        }
+
+        private (int, int) randomListConsole(string text)
+        {
+            int min, max;
+
+            Console.Write(text);
+            WriteColor(false, ConsoleColor.Blue, "_");
+            Console.WriteLine(" and _");
+
+            min = randomNumberInput(0);
+
+            Console.Clear();
+            Console.Write(text);
+            WriteColor(false, ConsoleColor.Blue, $"{min}");
+            Console.Write(" and ");
+            WriteColor(true, ConsoleColor.Blue, "_");
+
+            max = randomNumberInput(min);
+
+            Console.Clear();
+            Console.Write(text);
+            WriteColor(false, ConsoleColor.Blue, $"{min}");
+            Console.Write(" and ");
+            WriteColor(true, ConsoleColor.Blue, $"{max}\n");
+
+            Console.ReadKey(true);
+            Console.Clear();
+
+            return (min, max);
         }
 
         private int randomNumberInput(int min)
