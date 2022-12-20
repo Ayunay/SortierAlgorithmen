@@ -6,7 +6,28 @@ using System.Threading.Tasks;
 
 namespace SortierAlgorithmen
 {
-    internal class BubbleSort
+    internal class Bubblesort : ASorting
     {
+        List<int> numbers = new List<int>();
+
+        public Bubblesort(List<int> numbers)
+        {
+            this.numbers = numbers;
+        }
+
+        public override void Ascending()
+        {
+            base.PrintSortedList(numbers);
+        }
+
+        public override void Descending()
+        {
+            base.PrintSortedList(numbers);
+        }
+
+        public override void Zigzag()
+        {
+            base.PrintSortedList(numbers);
+        }
     }
 }

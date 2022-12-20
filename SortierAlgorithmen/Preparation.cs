@@ -8,6 +8,10 @@ namespace SortierAlgorithmen
 {
     internal class Preparation
     {
+        /// <summary>
+        /// Does the user want to insert the list by himself or should it be created random?
+        /// </summary>
+        /// <returns></returns>
         public List<int> CreateList()
         {
             List<int> numbers = new List<int>();
@@ -15,19 +19,7 @@ namespace SortierAlgorithmen
             Console.WriteLine("1. Do you want to insert the numbers of the List by your own or...\n" +
                               "2. Do you want to create a list with random numbers?");
 
-            int selection = 0;
-            bool validInput = false;
-
-            while (!validInput)     // Check if a number has been entered for the choice 
-            {
-                char input = Console.ReadKey(true).KeyChar;
-
-                if (!int.TryParse(input.ToString(), out selection))
-                    WriteColor(true, ConsoleColor.Red, "Please pick one option from above.");
-                else validInput = true;
-            }
-
-            Console.Clear();
+            int selection = UserInput(2);
 
             switch (selection)
             {
@@ -47,6 +39,10 @@ namespace SortierAlgorithmen
             return numbers;
         }
 
+        /// <summary>
+        /// User create a list with his own numbers
+        /// </summary>
+        /// <returns></returns>
         private List<int> EnterOwnList()
         {
             List<int> numbers = new List<int>();
@@ -102,6 +98,12 @@ namespace SortierAlgorithmen
             }
         }
 
+        #region RandomList
+
+        /// <summary>
+        /// Create a list with random nmbers instead of letting the user insert some
+        /// </summary>
+        /// <returns></returns>
         private List<int> RandomizeList()
         {
             Random random = new Random();
@@ -131,6 +133,11 @@ namespace SortierAlgorithmen
             return numbers;
         }
 
+        /// <summary>
+        /// RandomizeList() most Console.WriteLines for a better overview
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         private (int, int) randomListConsole(string text)
         {
             int min, max;
@@ -161,6 +168,11 @@ namespace SortierAlgorithmen
             return (min, max);
         }
 
+        /// <summary>
+        /// Part of the RandomizeList() -- the user should say how long the list should be and which numbers can be created
+        /// </summary>
+        /// <param name="min"></param>
+        /// <returns></returns>
         private int randomNumberInput(int min)
         {
             int number = 0;
@@ -181,11 +193,96 @@ namespace SortierAlgorithmen
             return number;
         }
 
+        #endregion
+
+        /// <summary>
+        /// The user should choose an Algorithm to sort the list
+        /// </summary>
+        /// <returns></returns>
         public string ChooseAlgorithm()
         {
             string algo = "";
 
+            Console.WriteLine("Choose the Algorithm you want to sort the list with:" +
+                              "1. Bubblesort\n" +
+                              "2. \n" +
+                              "3. ");
+
+            int selection = UserInput(3);
+
+            switch (selection)
+            {
+                case 1:
+                    algo = "Bubblesort";
+                    break;
+
+                case 2:
+                    algo = "...";
+                    break;
+
+                case 3:
+                    algo = "..";
+                    break;
+            }
+
             return algo;
+        }
+
+        /// <summary>
+        /// The user should choose a type how to sort the list
+        /// </summary>
+        /// <returns></returns>
+        public string ChooseSorting()
+        {
+            string sort = "";
+
+            Console.WriteLine("Choose the way you want to sort your list:" +
+                              "1. Ascending\n" +
+                              "2. Descending\n" +
+                              "3. Zigzag (e.g. 6  1  5  2  4  3)");
+
+            int selection = UserInput(3);
+
+            switch (selection)
+            {
+                case 1:
+                    sort = "Ascending";
+                    break;
+
+                case 2:
+                    sort = "Descending";
+                    break;
+
+                case 3:
+                    sort = "Zigzag";
+                    break;
+            }
+
+            return sort;
+        }
+
+        /// <summary>
+        /// Checks if the User input is a number and is in the given range (amount of options)
+        /// </summary>
+        /// <param name="options">how many options are there to choose</param>
+        /// <returns></returns>
+        private int UserInput(int options)
+        {
+            int selection = 0;
+            bool validInput = false;
+
+            while (!validInput)     // Check if a number has been entered for the choice 
+            {
+                char input = Console.ReadKey(true).KeyChar;
+
+                if (!int.TryParse(input.ToString(), out selection) || selection == 0 || selection > options)
+                    WriteColor(true, ConsoleColor.Red, "Please pick one option from above.");
+                else validInput = true;
+            }
+
+            Console.Clear();
+
+            return selection;
         }
 
         /// <summary>
