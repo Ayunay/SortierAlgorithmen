@@ -8,15 +8,15 @@ namespace SortierAlgorithmen
 {
     abstract class ASorting
     {
-        public abstract void Ascending();
-        public abstract void Descending();
-        public abstract void Zigzag();
+        public abstract List<int> Ascending(List<int> numbers);
+        public abstract List<int> Descending(List<int> numbers);
+        public abstract List<int> Zigzag(List<int> numbers);
 
         public virtual void PrintSortedList(List<int> numbers)
         {
             Console.ForegroundColor = ConsoleColor.Green;
 
-            Console.Write("Sorted List: ");
+            Console.Write("\nSorted List: ");
 
             foreach(int number in numbers)
             {

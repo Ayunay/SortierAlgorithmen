@@ -12,33 +12,39 @@
             string sorting = prep.ChooseSorting();
 
             // Write everything down ...
-            prep.WriteColor(false, ConsoleColor.DarkGreen, $"List: ");
+            prep.WriteColor(false, ConsoleColor.Blue, $"List: ");
             foreach (int number in numbers)
             {
-                prep.WriteColor(false, ConsoleColor.DarkGreen, $"{number} ");           // the list
+                prep.WriteColor(false, ConsoleColor.Blue, $"{number} ");           // the list
             }
-            prep.WriteColor(true, ConsoleColor.DarkGreen, $"\nAlgorithm: {algorithm}"); // the algorithm
-            prep.WriteColor(true, ConsoleColor.DarkGreen, $"Sorting: {sorting}");       // the type of sorting
+            prep.WriteColor(true, ConsoleColor.Blue, $"\nAlgorithm: {algorithm}"); // the algorithm
+            
+            prep.WriteColor(true, ConsoleColor.Blue, $"Sorting: {sorting}");       // the type of sorting
+
+            Console.ReadKey();
+
+            List<int> sortedList = new List<int>(numbers.Count);
 
             // Sort the List
             switch (algorithm)
             {
                 case "Bubblesort":
-                    Bubblesort bubble = new Bubblesort(numbers);
+                    Bubblesort bubble = new Bubblesort();
                     switch (sorting)
                     {
                         case "Ascending":
-                            bubble.Ascending();
+                            sortedList = bubble.Ascending(numbers);
                             break;
 
                         case "Descending":
-                            bubble.Descending();
+                            sortedList = bubble.Descending(numbers);
                             break;
 
                         case "Zigzag":
-                            bubble.Zigzag();
+                            sortedList = bubble.Zigzag(numbers);
                             break;
                     }
+                    bubble.PrintSortedList(sortedList);    // "numbers" variable irrelevant here but i need it because of virtual function
                     break;
 
                     /*case "Insertionsort":
@@ -46,17 +52,18 @@
                         switch (sorting)
                         {
                             case "Ascending":
-                                insertion.Ascending();
+                                sortedList = insertion.Ascending(numbers);
                                 break;
 
                             case "Descending":
-                                insertion.Descending();
+                                sortedList = insertion.Descending(numbers);
                                 break;
 
                             case "Zigzag":
-                                insertion.Zigzag();
+                                sortedList = insertion.Zigzag(numbers);
                                 break;
                         }
+                    bubble.PrintSortedList(sortedList);
                         break;
 
                     case "..":
@@ -64,17 +71,18 @@
                         switch (sorting)
                         {
                             case "Ascending":
-                                bubble.Ascending();
+                                sortedList = bubble.Ascending(numbers);
                                 break;
 
                             case "Descending":
-                                bubble.Descending();
+                                sortedList = bubble.Descending(numbers);
                                 break;
 
                             case "Zigzag":
-                                bubble.Zigzag();
+                                sortedList = bubble.Zigzag(numbers);
                                 break;
                         }
+                        bubble.PrintSortedList(sortedList);
                         break;*/
             }
         }
