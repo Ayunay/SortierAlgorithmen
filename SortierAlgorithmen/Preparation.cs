@@ -205,7 +205,7 @@ namespace SortierAlgorithmen
 
             Console.WriteLine("Choose the Algorithm you want to sort the list with:" +
                               "1. Bubblesort\n" +
-                              "2. \n" +
+                              "2. Insertionsort\n" +
                               "3. ");
 
             int selection = UserInput(3);
@@ -217,7 +217,7 @@ namespace SortierAlgorithmen
                     break;
 
                 case 2:
-                    algo = "...";
+                    algo = "Insertionsort";
                     break;
 
                 case 3:

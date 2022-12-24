@@ -41,20 +41,20 @@
                     }
                     break;
 
-                /*case "...":
-                    Bubblesort bubble = new Bubblesort(numbers);
+                /*case "Insertionsort":
+                    Insertionsort insertion = new Insertionsort(numbers);
                     switch (sorting)
                     {
                         case "asc":
-                            bubble.Ascending();
+                            insertion.Ascending();
                             break;
 
                         case "desc":
-                            bubble.Descending();
+                            insertion.Descending();
                             break;
 
                         case "zig":
-                            bubble.Zigzag();
+                            insertion.Zigzag();
                             break;
                     }
                     break;
