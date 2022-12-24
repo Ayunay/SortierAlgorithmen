@@ -203,7 +203,7 @@ namespace SortierAlgorithmen
         {
             string algo = "";
 
-            Console.WriteLine("Choose the Algorithm you want to sort the list with:" +
+            Console.WriteLine("Choose the Algorithm you want to sort the list with:\n" +
                               "1. Bubblesort\n" +
                               "2. Insertionsort\n" +
                               "3. ");
@@ -236,7 +236,7 @@ namespace SortierAlgorithmen
         {
             string sort = "";
 
-            Console.WriteLine("Choose the way you want to sort your list:" +
+            Console.WriteLine("Choose the way you want to sort your list:\n" +
                               "1. Ascending\n" +
                               "2. Descending\n" +
                               "3. Zigzag (e.g. 6  1  5  2  4  3)");

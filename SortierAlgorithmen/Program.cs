@@ -27,55 +27,55 @@
                     Bubblesort bubble = new Bubblesort(numbers);
                     switch (sorting)
                     {
-                        case "asc":
+                        case "Ascending":
                             bubble.Ascending();
                             break;
 
-                        case "desc":
+                        case "Descending":
                             bubble.Descending();
                             break;
 
-                        case "zig":
+                        case "Zigzag":
                             bubble.Zigzag();
                             break;
                     }
                     break;
 
-                /*case "Insertionsort":
-                    Insertionsort insertion = new Insertionsort(numbers);
-                    switch (sorting)
-                    {
-                        case "asc":
-                            insertion.Ascending();
-                            break;
+                    /*case "Insertionsort":
+                        Insertionsort insertion = new Insertionsort(numbers);
+                        switch (sorting)
+                        {
+                            case "Ascending":
+                                insertion.Ascending();
+                                break;
 
-                        case "desc":
-                            insertion.Descending();
-                            break;
+                            case "Descending":
+                                insertion.Descending();
+                                break;
 
-                        case "zig":
-                            insertion.Zigzag();
-                            break;
-                    }
-                    break;
+                            case "Zigzag":
+                                insertion.Zigzag();
+                                break;
+                        }
+                        break;
 
-                case "..":
-                    Bubblesort bubble = new Bubblesort(numbers);
-                    switch (sorting)
-                    {
-                        case "asc":
-                            bubble.Ascending();
-                            break;
+                    case "..":
+                        Bubblesort bubble = new Bubblesort(numbers);
+                        switch (sorting)
+                        {
+                            case "Ascending":
+                                bubble.Ascending();
+                                break;
 
-                        case "desc":
-                            bubble.Descending();
-                            break;
+                            case "Descending":
+                                bubble.Descending();
+                                break;
 
-                        case "zig":
-                            bubble.Zigzag();
-                            break;
-                    }
-                    break;*/
+                            case "Zigzag":
+                                bubble.Zigzag();
+                                break;
+                        }
+                        break;*/
             }
         }
     }
