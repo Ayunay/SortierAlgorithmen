@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace SortierAlgorithmen
 {
+    /// <summary>
+    /// Sort from left to right in pairs.
+    /// When a pair has to be switched, then start again from the left side.
+    /// its done, when it reaches the right side, because that means every pair is sorted right
+    /// </summary>
     internal class Bubblesort : ASorting
     {
         //List<int> numbers = new List<int>();
@@ -56,6 +61,9 @@ namespace SortierAlgorithmen
             return numbers;
         }
 
+        /// <summary>
+        /// Combines the Ascending and Descending List to a Zigzag List
+        /// </summary>
         public override List<int> Zigzag(List<int> numbers)
         {
             List<int> ascList = Ascending(numbers);

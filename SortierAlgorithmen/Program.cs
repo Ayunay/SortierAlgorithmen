@@ -47,26 +47,26 @@
                     bubble.PrintSortedList(sortedList);    // "numbers" variable irrelevant here but i need it because of virtual function
                     break;
 
-                    /*case "Insertionsort":
-                        Insertionsort insertion = new Insertionsort(numbers);
-                        switch (sorting)
-                        {
-                            case "Ascending":
-                                sortedList = insertion.Ascending(numbers);
-                                break;
+                case "Insertionsort":
+                    Insertionsort insertion = new Insertionsort();
+                    switch (sorting)
+                    {
+                        case "Ascending":
+                            sortedList = insertion.Ascending(numbers);
+                            break;
 
-                            case "Descending":
-                                sortedList = insertion.Descending(numbers);
-                                break;
+                        case "Descending":
+                            sortedList = insertion.Descending(numbers);
+                            break;
 
-                            case "Zigzag":
-                                sortedList = insertion.Zigzag(numbers);
-                                break;
-                        }
-                    bubble.PrintSortedList(sortedList);
-                        break;
+                        case "Zigzag":
+                            sortedList = insertion.Zigzag(numbers);
+                            break;
+                    }
+                    insertion.PrintSortedList(sortedList);
+                    break;
 
-                    case "..":
+                    /*case "..":
                         Bubblesort bubble = new Bubblesort(numbers);
                         switch (sorting)
                         {
