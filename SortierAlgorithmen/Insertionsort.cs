@@ -21,32 +21,27 @@ namespace SortierAlgorithmen
 
             int i = 1;  //start at the second element because we just added the first
             
-
-            
-
             while (i < numbers.Count)   // goes through every element of the right list "numbers"
             {
                 int index = sortedNumbers.Count;    // set for checking if i need to insert of add an element    
                 int value = sortedNumbers[0];       // set for the first comparison
                 int j = 0;
+                bool insert = false;
 
                 while (j < sortedNumbers.Count)  // and compares it to every element of the left side
                 {
-                    if (sortedNumbers[j] > numbers[i])  // if the number on the left is smaller than the from the right
+                    if (numbers[i] < sortedNumbers[j])  // if the number on the left is smaller than the from the right
                     {
-                        if((value != sortedNumbers[0] && sortedNumbers[j] < value) || value == sortedNumbers[0])  // if the right number was already compared with one from the left side
-                        {
-                            index = j;
-                            value = sortedNumbers[j];   // then save the value of the compared one
-                        }
-                        // if the compared is smaller but bigger than the one compared before, then do nothing
+                        index = j;
+                        insert = true;                  // insert it on this position
+
+                        j = sortedNumbers.Count;
                     }
-                    // wenn größer dann ADD
-                    j++;
+                    else j++;
                 }
 
                 // and places it into the left side (sorted)
-                if (index != sortedNumbers.Count) sortedNumbers.Insert(index, numbers[i]);  
+                if(insert) sortedNumbers.Insert(index, numbers[i]);
                 else sortedNumbers.Add(numbers[i]);
 
                 i++;
@@ -57,22 +52,39 @@ namespace SortierAlgorithmen
 
         public override List<int> Descending(List<int> numbers)
         {
-            int i = 0;
+            List<int> sortedNumbers = new List<int>();
 
-            while (i < numbers.Count - 1)
+            sortedNumbers.Add(numbers[0]);
+
+            int i = 1;  //start at the second element because we just added the first
+
+            while (i < numbers.Count)   // goes through every element of the right list "numbers"
             {
-                if (numbers[i] >= numbers[i + 1]) i++;   // go ahead when numbers are in right order
-                else                                    // switch the two numbers if they are in false order
-                {
-                    int temp = numbers[i];
-                    numbers[i] = numbers[i + 1];
-                    numbers[i + 1] = temp;
+                int index = sortedNumbers.Count;    // set for checking if i need to insert of add an element    
+                int value = sortedNumbers[0];       // set for the first comparison
+                int j = 0;
+                bool insert = false;
 
-                    i = 0;                              // and go back to the beginning
+                while (j < sortedNumbers.Count)  // and compares it to every element of the left side
+                {
+                    if (numbers[i] > sortedNumbers[j])  // if the number on the left is bigger than the from the right
+                    {
+                        index = j;
+                        insert = true;                  // insert it on this position
+
+                        j = sortedNumbers.Count;
+                    }
+                    else j++;
                 }
+
+                // and places it into the left side (sorted)
+                if (insert) sortedNumbers.Insert(index, numbers[i]);
+                else sortedNumbers.Add(numbers[i]);
+
+                i++;
             }
 
-            return numbers;
+            return sortedNumbers;
         }
 
         public override List<int> Zigzag(List<int> numbers)
