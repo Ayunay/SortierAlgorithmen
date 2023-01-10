@@ -66,24 +66,24 @@
                     insertion.PrintSortedList(sortedList);
                     break;
 
-                    /*case "..":
-                        Bubblesort bubble = new Bubblesort(numbers);
+                    case "Selectionsort":
+                        Selectionsort selection = new Selectionsort();
                         switch (sorting)
                         {
                             case "Ascending":
-                                sortedList = bubble.Ascending(numbers);
+                                sortedList = selection.Ascending(numbers);
                                 break;
 
                             case "Descending":
-                                sortedList = bubble.Descending(numbers);
+                                sortedList = selection.Descending(numbers);
                                 break;
 
                             case "Zigzag":
-                                sortedList = bubble.Zigzag(numbers);
+                                sortedList = selection.Zigzag(numbers);
                                 break;
                         }
-                        bubble.PrintSortedList(sortedList);
-                        break;*/
+                        selection.PrintSortedList(sortedList);
+                        break;
             }
         }
     }
