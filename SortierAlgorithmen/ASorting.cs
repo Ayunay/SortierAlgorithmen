@@ -10,8 +10,24 @@ namespace SortierAlgorithmen
     {
         public abstract List<int> Ascending(List<int> numbers);
         public abstract List<int> Descending(List<int> numbers);
-        public abstract List<int> Zigzag(List<int> numbers);
+        public virtual List<int> Zigzag(List<int> ascList)
+        {
+            List<int> zigzagList = new List<int>();
 
+            int min = 0;
+            int max = ascList.Count - 1;
+
+            while (max > min)
+            {
+                zigzagList.Add(ascList[max]);
+                max--;
+                zigzagList.Add(ascList[min]);
+                min++;
+            }
+
+            return zigzagList;
+        }
+        
         public virtual void PrintSortedList(List<int> numbers)
         {
             Console.ForegroundColor = ConsoleColor.Green;

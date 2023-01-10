@@ -67,34 +67,46 @@ namespace SortierAlgorithmen
         public override List<int> Zigzag(List<int> numbers)
         {
             List<int> ascList = Ascending(numbers);
+            return base.Zigzag(ascList);
+        }
 
-                foreach (int number in ascList)
-                {
-                    Console.Write($"{number} ");
-                }
-                Console.WriteLine("");
+        public override void PrintSortedList(List<int> list)
+        {
+            base.PrintSortedList(list);
+        }
+
+        /* Prevoius try to do the Method ... does not work
+        public override List<int> Zigzag(List<int> numbers)
+        {
+            List<int> ascList = Ascending(numbers);
+
+            foreach (int number in ascList)
+            {
+                Console.Write($"{number} ");
+            }
+            Console.WriteLine("");
 
             List<int> descList = Descending(numbers);
 
-                foreach (int number in ascList)
-                {
-                    Console.Write($"{number} ");
-                }
-                Console.WriteLine("");
+            foreach (int number in ascList)
+            {
+                Console.Write($"{number} ");
+            }
+            Console.WriteLine("");
 
             List<int> sortedList = numbers;
 
-                Console.WriteLine("\n");
-                foreach (int number in ascList)
-                {
-                    Console.Write($"{number} ");
-                }
-                Console.WriteLine("");
-                foreach (int number in descList)
-                {
-                    Console.Write($"{number} ");
-                }
-                Console.WriteLine("");
+            Console.WriteLine("\n");
+            foreach (int number in ascList)
+            {
+                Console.Write($"{number} ");
+            }
+            Console.WriteLine("");
+            foreach (int number in descList)
+            {
+                Console.Write($"{number} ");
+            }
+            Console.WriteLine("");
 
             int j = 0;
 
@@ -115,11 +127,6 @@ namespace SortierAlgorithmen
             }
 
             return sortedList;
-        }
-
-        public override void PrintSortedList(List<int> list)
-        {
-            base.PrintSortedList(list);
-        }
+        }*/
     }
 }

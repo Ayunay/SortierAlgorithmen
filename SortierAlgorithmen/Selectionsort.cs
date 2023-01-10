@@ -78,57 +78,13 @@ namespace SortierAlgorithmen
             return sortedNumbers;
         }
 
+        /// <summary>
+        /// Combines the Ascending and Descending List to a Zigzag List
+        /// </summary>
         public override List<int> Zigzag(List<int> numbers)
         {
             List<int> ascList = Ascending(numbers);
-
-            foreach (int number in ascList)
-            {
-                Console.Write($"{number} ");
-            }
-            Console.WriteLine("");
-
-            List<int> descList = Descending(numbers);
-
-            foreach (int number in ascList)
-            {
-                Console.Write($"{number} ");
-            }
-            Console.WriteLine("");
-
-            List<int> sortedList = numbers;
-
-            Console.WriteLine("\n");
-            foreach (int number in ascList)
-            {
-                Console.Write($"{number} ");
-            }
-            Console.WriteLine("");
-            foreach (int number in descList)
-            {
-                Console.Write($"{number} ");
-            }
-            Console.WriteLine("");
-
-            int j = 0;
-
-            for (int i = 0; i < sortedList.Count; i++)
-            {
-                Console.Write(i % 2);
-                if (i % 2 == 0)                        // every even i / element
-                {
-                    Console.WriteLine("  " + j + "  " + descList[j] + "  " + descList[i]);
-                    sortedList[i] = descList[j];    // take a number of the Descending (greater)
-                }
-                else if (i % 2 == 1)                                // every uneven i / element
-                {
-                    Console.WriteLine("  " + j + "  " + ascList[j] + "  " + ascList[i]);
-                    sortedList[i] = ascList[j];     // take a number of the Ascending (lower)
-                    j++;
-                }
-            }
-
-            return sortedList;
+            return base.Zigzag(ascList);
         }
 
         public override void PrintSortedList(List<int> list)
