@@ -24,7 +24,8 @@ namespace SortierAlgorithmen
                 int value = 0;
                 bool first = true;
 
-                for (int j = 0; j < numbers.Count; j++) // goes through every element of the right side
+                // goes through every element of the right side
+                for (int j = 0; j < numbers.Count; j++) 
                 {
                     if (first)                          // if its the first element to compare, save the data for later use
                     {
@@ -32,13 +33,13 @@ namespace SortierAlgorithmen
                         value = numbers[j];
                         first = false;
                     }
-                    else if (numbers[j] < value)        // if the element is smaller than the others already compares, save its data
+                    else if (numbers[j] < value)        // if the element is smaller than the others already compared, save its data
                     {
                         index = j;
                         value = numbers[j];
                     }
                 }
-                sortedNumbers.Add(numbers[index]);      // to insert add it to the sorted list
+                sortedNumbers.Add(numbers[index]);      // to add it to the sorted list
                 numbers.RemoveAt(index);                // and remove it from the right unsorted list
             }
 
@@ -56,7 +57,8 @@ namespace SortierAlgorithmen
                 int value = 0;
                 bool first = true;
 
-                for (int j = 0; j < numbers.Count; j++) // goes through every element of the right side
+                // goes through every element of the right side
+                for (int j = 0; j < numbers.Count; j++)
                 {
                     if (first)                          // if its the first element to compare, save the data for later use
                     {
@@ -64,13 +66,13 @@ namespace SortierAlgorithmen
                         value = numbers[j];
                         first = false;
                     }
-                    else if (numbers[j] > value)        // if the element is bigger than the others already compares, save its data
+                    else if (numbers[j] > value)        // if the element is higher than the others already compared, save its data
                     {
                         index = j;
                         value = numbers[j];
                     }
                 }
-                sortedNumbers.Add(numbers[index]);      // to insert add it to the sorted list
+                sortedNumbers.Add(numbers[index]);      // to add it to the sorted list
                 numbers.RemoveAt(index);                // and remove it from the right unsorted list
             }
 
@@ -78,9 +80,6 @@ namespace SortierAlgorithmen
             return sortedNumbers;
         }
 
-        /// <summary>
-        /// Combines the Ascending and Descending List to a Zigzag List
-        /// </summary>
         public override List<int> Zigzag(List<int> numbers)
         {
             List<int> ascList = Ascending(numbers);

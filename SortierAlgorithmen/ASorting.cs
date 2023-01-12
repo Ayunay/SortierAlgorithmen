@@ -10,6 +10,11 @@ namespace SortierAlgorithmen
     {
         public abstract List<int> Ascending(List<int> numbers);
         public abstract List<int> Descending(List<int> numbers);
+        /// <summary>
+        /// Zigzag = biggest number - smallest - 2nd biggest - 2nd smallest - 3rd biggest - 3rd smallest - ...
+        /// </summary>
+        /// <param name="ascList">When Calling: The unsorted List</param>
+        /// <returns></returns>
         public virtual List<int> Zigzag(List<int> ascList)
         {
             List<int> zigzagList = new List<int>();
@@ -17,11 +22,11 @@ namespace SortierAlgorithmen
             int min = 0;
             int max = ascList.Count - 1;
 
-            while (max > min)
+            while (max > min)                   // until min and max cross each other
             {
-                zigzagList.Add(ascList[max]);
+                zigzagList.Add(ascList[max]);   // add the next biggest number
                 max--;
-                zigzagList.Add(ascList[min]);
+                zigzagList.Add(ascList[min]);   // then the next smallest number
                 min++;
             }
 

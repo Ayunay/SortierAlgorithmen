@@ -11,7 +11,7 @@ namespace SortierAlgorithmen
         /// <summary>
         /// Does the user want to insert the list by himself or should it be created random?
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Returns the List</returns>
         public List<int> CreateList()
         {
             List<int> numbers = new List<int>();
@@ -40,7 +40,7 @@ namespace SortierAlgorithmen
         }
 
         /// <summary>
-        /// User create a list with his own numbers
+        /// User creates a list with his own numbers
         /// </summary>
         /// <returns></returns>
         private List<int> EnterOwnList()
@@ -57,6 +57,7 @@ namespace SortierAlgorithmen
                                   "If you have entered all numbers, press 'f'.\n" +
                                   "If you want to remove the last number, press 'b'.\n");
 
+                // possible error line
                 if (!validInput)
                 {
                     WriteColor(true, ConsoleColor.Red, "This is no number, please enter a number or 'f' or 'b'.\n");
@@ -64,15 +65,17 @@ namespace SortierAlgorithmen
                 }
                 else Console.Write("\n\n");
 
+                // "Your List: ..." is kept up to date and adds every new inserted number
                 WriteColor(false, ConsoleColor.DarkGreen, "Your List: ");
-                for (int i = 1; i <= numbers.Count; i++)                     // Prints all numbers of the List
+                for (int i = 1; i <= numbers.Count; i++)
                 {
                     if(i == numbers.Count && insertion != "b") 
-                        WriteColor(false, ConsoleColor.Green, $"{numbers[i-1]} ");
-                    else WriteColor(false, ConsoleColor.DarkGreen, $"{numbers[i-1]} "); 
+                        WriteColor(false, ConsoleColor.Green, $"{numbers[i-1]} ");      // the last inserted number
+                    else WriteColor(false, ConsoleColor.DarkGreen, $"{numbers[i-1]} "); // all other numbers
                 }
 
-                insertion = Console.ReadLine();             // User Input: number
+                // Uder Input: number
+                insertion = Console.ReadLine();
 
                 switch (insertion)
                 {
@@ -80,7 +83,7 @@ namespace SortierAlgorithmen
                         return numbers;                     // Return the final List            
 
                     case "b":
-                        numbers.RemoveAt(numbers.Count-1);      // Remove the last element of the List
+                        numbers.RemoveAt(numbers.Count-1);  // Remove the last element of the List
                         break;
 
                     default:
@@ -91,7 +94,7 @@ namespace SortierAlgorithmen
                             validInput = false;
                             break;
                         }
-                        else numbers.Add(intNumber);        // Add a new element to the List
+                        else numbers.Add(intNumber);        // if its a valid input: Add a new element to the List
 
                         break;
                 }
@@ -110,10 +113,13 @@ namespace SortierAlgorithmen
             List<int> numbers = new List<int>();
             int minList, maxList, minNumber, maxNumber, amount;
 
+            // User Input
             (minList, maxList) = randomListConsole("Create a random list with an amount of numbers between ");
             amount = random.Next(minList, maxList + 1);     // how many Numbers should be randomized (min-max)
+
             (minNumber, maxNumber) = randomListConsole("Randomize Numbers between ");
 
+            // Write everything down
             Console.WriteLine($"List length between {minList} and {maxList}\n" +
                               $"Numbers between {minNumber} and {maxNumber}\n");
 
@@ -121,9 +127,9 @@ namespace SortierAlgorithmen
 
             for (int i = 0; i <= amount; i++)
             {
-                int number = random.Next(minNumber, maxNumber);
+                int number = random.Next(minNumber, maxNumber);             // randomize numbers
                 numbers.Add(number);
-                WriteColor(false, ConsoleColor.DarkGreen, $"{number} ");
+                WriteColor(false, ConsoleColor.DarkGreen, $"{number} ");    // and write the list down
             }
 
             WriteColor(true, ConsoleColor.DarkGray, "\nPress any key to sort the list");
@@ -137,7 +143,7 @@ namespace SortierAlgorithmen
         /// RandomizeList() most Console.WriteLines for a better overview
         /// </summary>
         /// <param name="text"></param>
-        /// <returns></returns>
+        /// <returns>(Minimum, Maximum) values</returns>
         private (int, int) randomListConsole(string text)
         {
             int min, max;
@@ -169,10 +175,10 @@ namespace SortierAlgorithmen
         }
 
         /// <summary>
-        /// Part of the RandomizeList() -- the user should say how long the list should be and which numbers can be created
+        /// Part of the RandomizeList() -- the user should say 1. how long the list should be and 2. which numbers can be created
         /// </summary>
-        /// <param name="min"></param>
-        /// <returns></returns>
+        /// <param name="min">What is the minimum value, because the maximum cant be smaller - when there is no minimum yet, insert 0 for avoiding negative numbers</param>
+        /// <returns>Minimum or Maximum value</returns>
         private int randomNumberInput(int min)
         {
             int number = 0;
@@ -181,12 +187,12 @@ namespace SortierAlgorithmen
             {
                 string input = Console.ReadLine();
 
-                if (!int.TryParse(input, out number))
+                if (!int.TryParse(input, out number))   // if its no number
                     WriteColor(true, ConsoleColor.Red, "This is no number, please enter a number.");
-                else if (number < min)
+                else if (number < min)                  // else if the number is smaller than the minimum
                 {
                     WriteColor(true, ConsoleColor.Red, "The maximal amount has to be greater then the minimal amount.");
-                    number = 0;      // so that we stay in the loop
+                    number = 0;      // reset number so that we stay in the loop if its an invalid input
                 }
             }
 
@@ -198,7 +204,7 @@ namespace SortierAlgorithmen
         /// <summary>
         /// The user should choose an Algorithm to sort the list
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Algorithm (string)</returns>
         public string ChooseAlgorithm()
         {
             string algo = "";
@@ -231,7 +237,7 @@ namespace SortierAlgorithmen
         /// <summary>
         /// The user should choose a type how to sort the list
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Sorting Type (string)</returns>
         public string ChooseSorting()
         {
             string sort = "";
@@ -265,7 +271,7 @@ namespace SortierAlgorithmen
         /// Checks if the User input is a number and is in the given range (amount of options)
         /// </summary>
         /// <param name="options">how many options are there to choose</param>
-        /// <returns></returns>
+        /// <returns>The selected Option (int)</returns>
         private int UserInput(int options)
         {
             int selection = 0;
@@ -286,9 +292,9 @@ namespace SortierAlgorithmen
         }
 
         /// <summary>
-        /// Console.Write in Color
+        /// Console.Write(line) in Color
         /// </summary>
-        /// <param name="line">true: Console.Write or false: Console.WriteLine</param>
+        /// <param name="line">true: Console.Write || false: Console.WriteLine</param>
         /// <param name="color"></param>
         /// <param name="text"></param>
         public void WriteColor(bool line, ConsoleColor color, string text)

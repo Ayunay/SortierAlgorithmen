@@ -14,27 +14,20 @@ namespace SortierAlgorithmen
     /// </summary>
     internal class Bubblesort : ASorting
     {
-        //List<int> numbers = new List<int>();
-
-        //public Bubblesort(List<int> numbers)
-        //{
-        //    this.numbers = numbers;
-        //}
-
         public override List<int> Ascending(List<int> numbers)
         {
             int i = 0;
 
             while (i < numbers.Count-1)
             {
-                if (numbers[i] <= numbers[i + 1]) i++;   // go ahead when numbers are in right order
+                if (numbers[i] <= numbers[i + 1]) i++;  // go ahead when numbers are in right order
                 else                                    // switch the two numbers if they are in false order
                 {
                     int temp = numbers[i];
                     numbers[i] = numbers[i + 1];
                     numbers[i + 1] = temp;
 
-                    i = 0;                              // and go back to the beginning
+                    i = 0;                              // and go back to the first number in the list
                 }
             }
 
@@ -47,23 +40,20 @@ namespace SortierAlgorithmen
 
             while (i < numbers.Count - 1)
             {
-                if (numbers[i] >= numbers[i + 1]) i++;   // go ahead when numbers are in right order
+                if (numbers[i] >= numbers[i + 1]) i++;  // go ahead when numbers are in right order
                 else                                    // switch the two numbers if they are in false order
                 {
                     int temp = numbers[i];
                     numbers[i] = numbers[i + 1];
                     numbers[i + 1] = temp;
 
-                    i = 0;                              // and go back to the beginning
+                    i = 0;                              // and go back to the first number in the list
                 }
             }
 
             return numbers;
         }
 
-        /// <summary>
-        /// Combines the Ascending and Descending List to a Zigzag List
-        /// </summary>
         public override List<int> Zigzag(List<int> numbers)
         {
             List<int> ascList = Ascending(numbers);

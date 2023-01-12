@@ -20,27 +20,29 @@ namespace SortierAlgorithmen
             sortedNumbers.Add(numbers[0]);
 
             int i = 1;  //start at the second element because we just added the first
-            
-            while (i < numbers.Count)   // goes through every element of the right list "numbers"
+
+            // goes through every element of the right list "numbers"
+            while (i < numbers.Count)
             {
-                int index = sortedNumbers.Count;    // set for checking if i need to insert of add an element    
+                int index = sortedNumbers.Count;
                 int value = sortedNumbers[0];       // set for the first comparison
                 int j = 0;
                 bool insert = false;
 
-                while (j < sortedNumbers.Count)  // and compares it to every element of the left side
+                // goes through every element of the left list "sortedNumbers"
+                while (j < sortedNumbers.Count)
                 {
                     if (numbers[i] < sortedNumbers[j])  // if the number on the left is smaller than the from the right
                     {
-                        index = j;
-                        insert = true;                  // insert it on this position
+                        index = j;                      // save the position
+                        insert = true;
 
-                        j = sortedNumbers.Count;
+                        j = sortedNumbers.Count;        // break the while, because we already found a smaller number
                     }
                     else j++;
                 }
 
-                // and places it into the left side (sorted)
+                // and insert it into the left side (sorted)
                 if(insert) sortedNumbers.Insert(index, numbers[i]);
                 else sortedNumbers.Add(numbers[i]);
 
@@ -58,26 +60,28 @@ namespace SortierAlgorithmen
 
             int i = 1;  //start at the second element because we just added the first
 
-            while (i < numbers.Count)   // goes through every element of the right list "numbers"
+            // goes through every element of the right list "numbers"
+            while (i < numbers.Count)   
             {
-                int index = sortedNumbers.Count;    // set for checking if i need to insert of add an element    
+                int index = sortedNumbers.Count; 
                 int value = sortedNumbers[0];       // set for the first comparison
                 int j = 0;
                 bool insert = false;
 
-                while (j < sortedNumbers.Count)  // and compares it to every element of the left side
+                // goes through every element of the left list "sortedNumbers"
+                while (j < sortedNumbers.Count)
                 {
-                    if (numbers[i] > sortedNumbers[j])  // if the number on the left is bigger than the from the right
+                    if (numbers[i] > sortedNumbers[j])  // if the number on the left is higher than the from the right
                     {
-                        index = j;
-                        insert = true;                  // insert it on this position
+                        index = j;                      // save the position
+                        insert = true;
 
-                        j = sortedNumbers.Count;
+                        j = sortedNumbers.Count;        // break the while, because we already found a higher number
                     }
                     else j++;
                 }
 
-                // and places it into the left side (sorted)
+                // and insert it into the left side (sorted)
                 if (insert) sortedNumbers.Insert(index, numbers[i]);
                 else sortedNumbers.Add(numbers[i]);
 
@@ -87,9 +91,6 @@ namespace SortierAlgorithmen
             return sortedNumbers;
         }
 
-        /// <summary>
-        /// Combines the Ascending and Descending List to a Zigzag List
-        /// </summary>
         public override List<int> Zigzag(List<int> numbers)
         {
             List<int> ascList = Ascending(numbers);
