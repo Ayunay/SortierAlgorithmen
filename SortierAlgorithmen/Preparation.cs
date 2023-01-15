@@ -8,6 +8,8 @@ namespace SortierAlgorithmen
 {
     internal class Preparation
     {
+        Outsorced outsorced = new Outsorced();
+
         /// <summary>
         /// Does the user want to insert the list by himself or should it be created random?
         /// </summary>
@@ -19,7 +21,7 @@ namespace SortierAlgorithmen
             Console.WriteLine("1. Do you want to insert the numbers of the List by your own or...\n" +
                               "2. Do you want to create a list with random numbers?");
 
-            int selection = UserInput(2);
+            int selection = outsorced.UserInput(2);
 
             switch (selection)
             {
@@ -60,18 +62,18 @@ namespace SortierAlgorithmen
                 // possible error line
                 if (!validInput)
                 {
-                    WriteColor(true, ConsoleColor.Red, "This is no number, please enter a number or 'f' or 'b'.\n");
+                    outsorced.WriteColor(true, ConsoleColor.Red, "This is no number, please enter a number or 'f' or 'b'.\n");
                     validInput = true;
                 }
                 else Console.Write("\n\n");
 
                 // "Your List: ..." is kept up to date and adds every new inserted number
-                WriteColor(false, ConsoleColor.DarkGreen, "Your List: ");
+                outsorced.WriteColor(false, ConsoleColor.DarkGreen, "Your List: ");
                 for (int i = 1; i <= numbers.Count; i++)
                 {
-                    if(i == numbers.Count && insertion != "b") 
-                        WriteColor(false, ConsoleColor.Green, $"{numbers[i-1]} ");      // the last inserted number
-                    else WriteColor(false, ConsoleColor.DarkGreen, $"{numbers[i-1]} "); // all other numbers
+                    if(i == numbers.Count && insertion != "b")
+                        outsorced.WriteColor(false, ConsoleColor.Green, $"{numbers[i-1]} ");      // the last inserted number
+                    else outsorced.WriteColor(false, ConsoleColor.DarkGreen, $"{numbers[i-1]} "); // all other numbers
                 }
 
                 // Uder Input: number
@@ -123,16 +125,16 @@ namespace SortierAlgorithmen
             Console.WriteLine($"List length between {minList} and {maxList}\n" +
                               $"Numbers between {minNumber} and {maxNumber}\n");
 
-            WriteColor(false, ConsoleColor.DarkGreen, $"List: ");
+            outsorced.WriteColor(false, ConsoleColor.DarkGreen, $"List: ");
 
             for (int i = 0; i <= amount; i++)
             {
                 int number = random.Next(minNumber, maxNumber);             // randomize numbers
                 numbers.Add(number);
-                WriteColor(false, ConsoleColor.DarkGreen, $"{number} ");    // and write the list down
+                outsorced.WriteColor(false, ConsoleColor.DarkGreen, $"{number} ");    // and write the list down
             }
 
-            WriteColor(true, ConsoleColor.DarkGray, "\nPress any key to sort the list");
+            outsorced.WriteColor(true, ConsoleColor.DarkGray, "\nPress any key to sort the list");
             Console.ReadKey(true);
             Console.Clear();
 
@@ -149,24 +151,24 @@ namespace SortierAlgorithmen
             int min, max;
 
             Console.Write(text);
-            WriteColor(false, ConsoleColor.Blue, "_");
+            outsorced.WriteColor(false, ConsoleColor.Blue, "_");
             Console.WriteLine(" and _");
 
             min = randomNumberInput(0);
 
             Console.Clear();
             Console.Write(text);
-            WriteColor(false, ConsoleColor.Blue, $"{min}");
+            outsorced.WriteColor(false, ConsoleColor.Blue, $"{min}");
             Console.Write(" and ");
-            WriteColor(true, ConsoleColor.Blue, "_");
+            outsorced.WriteColor(true, ConsoleColor.Blue, "_");
 
             max = randomNumberInput(min);
 
             Console.Clear();
             Console.Write(text);
-            WriteColor(false, ConsoleColor.Blue, $"{min}");
+            outsorced.WriteColor(false, ConsoleColor.Blue, $"{min}");
             Console.Write(" and ");
-            WriteColor(true, ConsoleColor.Blue, $"{max}\n");
+            outsorced.WriteColor(true, ConsoleColor.Blue, $"{max}\n");
 
             Console.ReadKey(true);
             Console.Clear();
@@ -188,10 +190,10 @@ namespace SortierAlgorithmen
                 string input = Console.ReadLine();
 
                 if (!int.TryParse(input, out number))   // if its no number
-                    WriteColor(true, ConsoleColor.Red, "This is no number, please enter a number.");
+                    outsorced.WriteColor(true, ConsoleColor.Red, "This is no number, please enter a number.");
                 else if (number < min)                  // else if the number is smaller than the minimum
                 {
-                    WriteColor(true, ConsoleColor.Red, "The maximal amount has to be greater then the minimal amount.");
+                    outsorced.WriteColor(true, ConsoleColor.Red, "The maximal amount has to be greater then the minimal amount.");
                     number = 0;      // reset number so that we stay in the loop if its an invalid input
                 }
             }
@@ -214,7 +216,7 @@ namespace SortierAlgorithmen
                               "2. Insertionsort\n" +
                               "3. Selectionsort");
 
-            int selection = UserInput(3);
+            int selection = outsorced.UserInput(3);
 
             switch (selection)
             {
@@ -247,7 +249,7 @@ namespace SortierAlgorithmen
                               "2. Descending\n" +
                               "3. Zigzag (e.g. 6  1  5  2  4  3)");
 
-            int selection = UserInput(3);
+            int selection = outsorced.UserInput(3);
 
             switch (selection)
             {
@@ -265,44 +267,6 @@ namespace SortierAlgorithmen
             }
 
             return sort;
-        }
-
-        /// <summary>
-        /// Checks if the User input is a number and is in the given range (amount of options)
-        /// </summary>
-        /// <param name="options">how many options are there to choose</param>
-        /// <returns>The selected Option (int)</returns>
-        private int UserInput(int options)
-        {
-            int selection = 0;
-            bool validInput = false;
-
-            while (!validInput)     // Check if a number has been entered for the choice 
-            {
-                char input = Console.ReadKey(true).KeyChar;
-
-                if (!int.TryParse(input.ToString(), out selection) || selection == 0 || selection > options)
-                    WriteColor(true, ConsoleColor.Red, "Please pick one option from above.");
-                else validInput = true;
-            }
-
-            Console.Clear();
-
-            return selection;
-        }
-
-        /// <summary>
-        /// Console.Write(line) in Color
-        /// </summary>
-        /// <param name="line">true: Console.Write || false: Console.WriteLine</param>
-        /// <param name="color"></param>
-        /// <param name="text"></param>
-        public void WriteColor(bool line, ConsoleColor color, string text)
-        {
-            Console.ForegroundColor = color;
-            if (line == true) Console.WriteLine(text);
-            else Console.Write(text);
-            Console.ResetColor();
         }
     }
 }

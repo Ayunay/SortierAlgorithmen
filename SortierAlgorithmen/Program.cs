@@ -6,6 +6,29 @@ namespace SortierAlgorithmen
     {
         static void Main(string[] args)
         {
+            bool gameFlow = true;
+
+            while (gameFlow)
+            {
+                Outsorced outsorced = new Outsorced();
+                
+                // Menu "Do you want to play the Game or exit?"
+                gameFlow = outsorced.MenuSelector();
+
+                if (gameFlow)
+                {
+                    PrepareGame(outsorced);
+                }
+                Console.Clear();
+            }
+        }
+
+        /// <summary>
+        /// Preparation: Create a List and save the List, Algorithm, Sorting Type
+        /// </summary>
+        /// <param name="outsorced"></param>
+        static private void PrepareGame(Outsorced outsorced)
+        {
             Preparation prep = new Preparation();
 
             // Choose everything (write down a list of numbers and chose the algorithm and sorting type)
@@ -14,14 +37,14 @@ namespace SortierAlgorithmen
             string sorting = prep.ChooseSorting();
 
             // Write everything down ...
-            prep.WriteColor(false, ConsoleColor.Blue, $"List: ");
+            outsorced.WriteColor(false, ConsoleColor.Blue, $"List: ");
             foreach (int number in numbers)
             {
-                prep.WriteColor(false, ConsoleColor.Blue, $"{number} ");           // the list
+                outsorced.WriteColor(false, ConsoleColor.Blue, $"{number} ");           // the list
             }
-            prep.WriteColor(true, ConsoleColor.Blue, $"\nAlgorithm: {algorithm}"); // the algorithm
-            
-            prep.WriteColor(true, ConsoleColor.Blue, $"Sorting: {sorting}");       // the type of sorting
+            outsorced.WriteColor(true, ConsoleColor.Blue, $"\nAlgorithm: {algorithm}"); // the algorithm
+
+            outsorced.WriteColor(true, ConsoleColor.Blue, $"Sorting: {sorting}");       // the type of sorting
 
             Console.ReadKey();
 
