@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SortierAlgorithmen
 {
-    internal class Preparation
+    internal class CreateList
     {
         Outsorced outsorced = new Outsorced();
 
@@ -14,7 +14,7 @@ namespace SortierAlgorithmen
         /// Does the user want to insert the list by himself or should it be created random?
         /// </summary>
         /// <returns>Returns the List</returns>
-        public List<int> CreateList()
+        public List<int> HowToCreateList()
         {
             List<int> numbers = new List<int>();
 
@@ -34,7 +34,7 @@ namespace SortierAlgorithmen
                     break;
 
                 default:
-                    numbers = CreateList();
+                    numbers = HowToCreateList();
                     break;
             }
 
@@ -202,71 +202,5 @@ namespace SortierAlgorithmen
         }
 
         #endregion
-
-        /// <summary>
-        /// The user should choose an Algorithm to sort the list
-        /// </summary>
-        /// <returns>Algorithm (string)</returns>
-        public string ChooseAlgorithm()
-        {
-            string algo = "";
-
-            Console.WriteLine("Choose the Algorithm you want to sort the list with:\n" +
-                              "1. Bubblesort\n" +
-                              "2. Insertionsort\n" +
-                              "3. Selectionsort");
-
-            int selection = outsorced.UserInput(3);
-
-            switch (selection)
-            {
-                case 1:
-                    algo = "Bubblesort";
-                    break;
-
-                case 2:
-                    algo = "Insertionsort";
-                    break;
-
-                case 3:
-                    algo = "Selectionsort";
-                    break;
-            }
-
-            return algo;
-        }
-
-        /// <summary>
-        /// The user should choose a type how to sort the list
-        /// </summary>
-        /// <returns>Sorting Type (string)</returns>
-        public string ChooseSorting()
-        {
-            string sort = "";
-
-            Console.WriteLine("Choose the way you want to sort your list:\n" +
-                              "1. Ascending\n" +
-                              "2. Descending\n" +
-                              "3. Zigzag (e.g. 6  1  5  2  4  3)");
-
-            int selection = outsorced.UserInput(3);
-
-            switch (selection)
-            {
-                case 1:
-                    sort = "Ascending";
-                    break;
-
-                case 2:
-                    sort = "Descending";
-                    break;
-
-                case 3:
-                    sort = "Zigzag";
-                    break;
-            }
-
-            return sort;
-        }
     }
 }
